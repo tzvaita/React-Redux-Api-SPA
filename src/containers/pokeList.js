@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-// import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { fetchData } from '../actions';
 
@@ -10,7 +9,7 @@ const PokeList = ({ userData, fetchData }) => {
   }, []);
 
   if (userData.ourData !== []) {
-    return <p>Have data</p>;
+    return userData.ourData.map(pok => <p key={Math.random()}>{pok.name}</p>);
   }
 
   if (userData.loading === true) {
@@ -24,17 +23,14 @@ const PokeList = ({ userData, fetchData }) => {
   return <p> Unable</p>;
 };
 
-PokeList.defaultProps = {
-  userData: [],
-};
-
 PokeList.propTypes = {
-  userData: PropTypes.arrayOf(PropTypes.object),
+  // eslint-disable-next-line react/forbid-prop-types
+  userData: PropTypes.object.isRequired,
   fetchData: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  userData: state.data,
+  userData: state.pokemon,
 });
 
 const mapDispatchToProps = dispatch => ({

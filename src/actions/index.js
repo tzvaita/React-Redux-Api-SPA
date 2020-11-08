@@ -18,8 +18,8 @@ export const fetchData = () => dispatch => {
   dispatch(fetchDataRequest);
   axios.get('https://pokeapi.co/api/v2/pokemon')
     .then(response => {
-      const theData = response.data;
-      dispatch(fetchDataSuccessful(theData));
+      const ourData = response.data.results;
+      dispatch(fetchDataSuccessful(ourData));
     })
     .catch(error => {
       const errorMsg = error.message;

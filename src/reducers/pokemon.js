@@ -9,7 +9,7 @@ const pokemon = (state = Constant.defaultState, action) => {
       };
     case 'FETCH_DATA_SUCCESSFUL':
       return {
-        loading: true,
+        loading: false,
         ourData: action.payload,
       };
     case 'FETCH_DATA_FAILED':
