@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { fetchData } from '../actions';
 
 const PokeList = ({ userData, fetchData }) => {
@@ -9,7 +10,12 @@ const PokeList = ({ userData, fetchData }) => {
   }, []);
 
   if (userData.ourData !== []) {
-    return userData.ourData.map(pok => <p key={Math.random()}>{pok.name}</p>);
+    return userData.ourData.map(pok => (
+      <div key={Math.random()}>
+        <p>{pok.name}</p>
+        <Link to="/pokemon/{pok.name}">View</Link>
+      </div>
+    ));
   }
 
   if (userData.loading === true) {
@@ -17,15 +23,18 @@ const PokeList = ({ userData, fetchData }) => {
   }
 
   if (userData.error !== '') {
-    return <p>{userData.errMsg}</p>;
+    return <p>{userData.error}</p>;
   }
 
   return <p> Unable</p>;
 };
 
 PokeList.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  userData: PropTypes.object.isRequired,
+  userData: PropTypes.shape({
+    loading: PropTypes.bool,
+    ourData: PropTypes.arrayOf(PropTypes.object) || null,
+    error: PropTypes.string,
+  }).isRequired,
   fetchData: PropTypes.func.isRequired,
 };
 
