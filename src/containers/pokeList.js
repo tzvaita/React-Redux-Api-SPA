@@ -9,17 +9,17 @@ const PokeList = ({ userData, fetchData }) => {
     fetchData();
   }, []);
 
+  if (userData.loading) {
+    return <p>Loading...</p>;
+  }
+
   if (userData.ourData !== []) {
     return userData.ourData.map(pok => (
       <div key={Math.random()}>
         <p>{pok.name}</p>
-        <Link to="/pokemon/{pok.name}">View</Link>
+        <Link to={`/pokemon/${pok.name}`}>View</Link>
       </div>
     ));
-  }
-
-  if (userData.loading === true) {
-    return <p>Loading...</p>;
   }
 
   if (userData.error !== '') {
