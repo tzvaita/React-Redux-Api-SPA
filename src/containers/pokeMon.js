@@ -9,6 +9,7 @@ const PokeMon = props => {
   useEffect(() => {
     fetchSingleData(pokemonName);
   }, []);
+
   return (
     <div>
       Pokemon:
@@ -19,18 +20,20 @@ const PokeMon = props => {
 PokeMon.propTypes = {
   pokeData: PropTypes.shape({
     loading: PropTypes.bool,
-    pokeData: PropTypes.arrayOf(PropTypes.object) || null,
+    pokeData: PropTypes.object || null,
     error: PropTypes.string,
   }).isRequired,
   fetchSingleData: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  match: PropTypes.object.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  // props: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.objectOf(PropTypes.string),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
-  pokeData: state.singlePokemon.pokeData,
+  pokeData: state.singlePokemon,
 });
 
 const mapDispatchToProps = dispatch => ({

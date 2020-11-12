@@ -7,7 +7,7 @@ const constant = () => {
 
   const pokeDefaultState = {
     loading: false,
-    pokeData: [],
+    pokeData: {},
     error: '',
   };
 
