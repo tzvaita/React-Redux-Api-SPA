@@ -7,6 +7,9 @@ import pokeMon from '../containers/pokeMon';
 function App() {
   return (
     <div className="App">
+      <div className="pokLogo">
+        <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="POKEMON" />
+      </div>
       <Switch>
         <Route path="/" exact component={pokeList} />
         <Route path="/pokemon/:pokemon" exact component={pokeMon} />
