@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 import { fetchData } from '../actions';
 
 const PokeList = ({ userData, fetchData }) => {
@@ -13,7 +14,7 @@ const PokeList = ({ userData, fetchData }) => {
     return <p>Loading...</p>;
   }
 
-  if (userData.ourData !== []) {
+  if (!_.isEmpty(userData.ourData)) {
     return userData.ourData.map(pok => (
       <div key={Math.random()}>
         <p>{pok.name}</p>
