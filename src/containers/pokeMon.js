@@ -31,6 +31,7 @@ const PokeMon = props => {
           {data.stats.map(stat => (
             <p key={Math.random()}>
               {stat.stat.name}
+              :
               {stat.base_stat}
             </p>
           ))}
