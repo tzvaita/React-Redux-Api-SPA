@@ -45,11 +45,9 @@
 
 .singleImg {
   background-color: cadetblue;
-  border: 2px solid black;
-}
-
-.card {
-  width: 18rem;
+  border: 2px solid white;
+  border-radius: 15%;
+  margin-top: 2px;
 }
 
 .card-title {

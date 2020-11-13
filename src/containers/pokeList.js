@@ -18,7 +18,7 @@ const PokeList = ({ userData, fetchData }) => {
       <div className="container-fluid">
         <div className="row">
           {userData.ourData.map(pok => (
-            <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3">
+            <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3 col-md-4 col-sm-6">
               <Link to={`/pokemon/${pok.name}`}>
                 <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${userData.ourData.indexOf(pok) + 1}.png`} alt="POKEMON" />
                 <div className="card-body">
