@@ -20,8 +20,29 @@ const PokeMon = props => {
     return (
       <div>
         <h1>Sprites</h1>
-        <img src={data.sprites.back_default} alt="really now" />
-
+        <div>
+          <img src={data.sprites.back_default} alt="really now" />
+          <img src={data.sprites.front_default} alt="really now" />
+          <img src={data.sprites.front_shiny} alt="really now" />
+          <img src={data.sprites.back_shiny} alt="really now" />
+        </div>
+        <div>
+          <h1>Stats</h1>
+          {data.stats.map(stat => (
+            <p key={Math.random()}>
+              {stat.stat.name}
+              {stat.base_stat}
+            </p>
+          ))}
+        </div>
+        <div>
+          <h1>Abilities</h1>
+          {data.abilities.map(stat => (
+            <p key={Math.random()}>
+              {stat.ability.name}
+            </p>
+          ))}
+        </div>
       </div>
     );
   }
