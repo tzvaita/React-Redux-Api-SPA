@@ -9,15 +9,15 @@ const PokeList = ({ userData, fetchData }) => {
   useEffect(() => {
     fetchData();
   }, []);
-
   if (userData.loading) {
     return <p>Loading...</p>;
   }
 
   if (!_.isEmpty(userData.ourData)) {
     return userData.ourData.map(pok => (
-      <div key={Math.random()}>
+      <div key={userData.ourData.indexOf(pok)}>
         <p>{pok.name}</p>
+        <img src={`https://pokeres.bastionbot.org/images/pokemon/${userData.ourData.indexOf(pok) + 1}.png`} alt="POKEMON" />
         <Link to={`/pokemon/${pok.name}`}>View</Link>
       </div>
     ));
