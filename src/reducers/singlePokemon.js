@@ -13,10 +13,7 @@ const singlePokemon = (state = Constant.pokeDefaultState, action) => {
         ...state,
         loading: false,
         error: '',
-        pokeData: {
-          ...state.pokeData,
-          [action.pokeMonName]: action.payload,
-        },
+        pokeData: action.payload,
       };
     case 'FETCH_SINGLE_DATA_FAILED':
       return {

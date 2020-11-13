@@ -1,20 +1,36 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import { fetchSingleData } from '../actions';
 
 const PokeMon = props => {
-  const { fetchSingleData, match } = props;
+  const { fetchSingleData, match, pokeData } = props;
   const pokemonName = match.params.pokemon;
   useEffect(() => {
     fetchSingleData(pokemonName);
   }, []);
 
-  return (
-    <div>
-      Pokemon:
-    </div>
-  );
+  if (pokeData.loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!_.isEmpty(pokeData.pokeData)) {
+    const data = pokeData.pokeData;
+    return (
+      <div>
+        <h1>Sprites</h1>
+        <img src={data.sprites.back_default} alt="really now" />
+
+      </div>
+    );
+  }
+
+  if (pokeData.error !== '') {
+    return <p>there is an error</p>;
+  }
+
+  return <p> Unable</p>;
 };
 
 PokeMon.propTypes = {
