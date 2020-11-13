@@ -44,6 +44,20 @@
 }
 
 .singleImg {
-  width: 20%;
   background-color: cadetblue;
+  border: 2px solid black;
+}
+
+.card {
+  width: 18rem;
+}
+
+.card-title {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.pokTitle {
+  text-decoration: none;
+  color: black;
 }

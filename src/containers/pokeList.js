@@ -14,13 +14,22 @@ const PokeList = ({ userData, fetchData }) => {
   }
 
   if (!_.isEmpty(userData.ourData)) {
-    return userData.ourData.map(pok => (
-      <div key={userData.ourData.indexOf(pok)}>
-        <p>{pok.name}</p>
-        <img className="singleImg" src={`https://pokeres.bastionbot.org/images/pokemon/${userData.ourData.indexOf(pok) + 1}.png`} alt="POKEMON" />
-        <Link to={`/pokemon/${pok.name}`}>View</Link>
+    return (
+      <div className="container-fluid">
+        <div className="row">
+          {userData.ourData.map(pok => (
+            <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3">
+              <Link to={`/pokemon/${pok.name}`}>
+                <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${userData.ourData.indexOf(pok) + 1}.png`} alt="POKEMON" />
+                <div className="card-body">
+                  <h5 className="card-title pokTitle">{pok.name}</h5>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    ));
+    );
   }
 
   if (userData.error !== '') {
