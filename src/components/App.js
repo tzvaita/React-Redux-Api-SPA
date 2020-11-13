@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="App">
       <div className="pokLogo">
-        <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="POKEMON" />
+        <a href="/">
+          <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="POKEMON" />
+        </a>
       </div>
       <Switch>
         <Route path="/" exact component={pokeList} />
