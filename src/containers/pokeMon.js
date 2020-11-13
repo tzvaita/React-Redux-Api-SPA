@@ -18,28 +18,29 @@ const PokeMon = props => {
   if (!_.isEmpty(pokeData.pokeData)) {
     const data = pokeData.pokeData;
     return (
-      <div>
-        <h1>Sprites</h1>
-        <div>
-          <img src={data.sprites.back_default} alt="really now" />
-          <img src={data.sprites.front_default} alt="really now" />
-          <img src={data.sprites.front_shiny} alt="really now" />
-          <img src={data.sprites.back_shiny} alt="really now" />
+      <div className="pokeCont">
+        <h1 className="name">{data.name}</h1>
+        <h1 className="headings">Sprites</h1>
+        <div className="cont">
+          <img src={data.sprites.back_default} alt="sprite here" />
+          <img src={data.sprites.front_default} alt="sprite here" />
+          <img src={data.sprites.front_shiny} alt="sprite here" />
+          <img src={data.sprites.back_shiny} alt="sprite here" />
         </div>
-        <div>
-          <h1>Stats</h1>
+        <div className="cont">
+          <h1 className="headings">Stats</h1>
           {data.stats.map(stat => (
-            <p key={Math.random()}>
+            <p key={Math.random()} className="stat">
               {stat.stat.name}
               :
               {stat.base_stat}
             </p>
           ))}
         </div>
-        <div>
-          <h1>Abilities</h1>
+        <div className="cont">
+          <h1 className="headings">Abilities</h1>
           {data.abilities.map(stat => (
-            <p key={Math.random()}>
+            <p key={Math.random()} className="stat">
               {stat.ability.name}
             </p>
           ))}
@@ -52,7 +53,7 @@ const PokeMon = props => {
     return <p>there is an error</p>;
   }
 
-  return <p> Unable</p>;
+  return <p> Loading...</p>;
 };
 
 PokeMon.propTypes = {

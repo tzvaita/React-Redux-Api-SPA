@@ -59,3 +59,24 @@
   text-decoration: none;
   color: black;
 }
+
+.pokeCont {
+  background-color: cadetblue;
+}
+
+.name {
+  text-transform: uppercase;
+  color: darkcyan;
+}
+
+.headings {
+  font-weight: bold;
+  color: yellowgreen;
+}
+
+.stat {
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
