@@ -46,7 +46,7 @@ export const fetchData = () => dispatch => {
 
 export const fetchSingleData = pokemon => dispatch => {
   dispatch(fetchSingleDataRequest);
-  axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+  return axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
     .then(response => {
       const ourData = response.data;
       dispatch(fetchSingleDataSuccessful(ourData));
