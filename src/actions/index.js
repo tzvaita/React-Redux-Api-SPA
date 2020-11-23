@@ -33,7 +33,7 @@ const fetchSingleDataFailed = error => ({
 
 export const fetchData = () => dispatch => {
   dispatch(fetchDataRequest);
-  axios.get('https://pokeapi.co/api/v2/pokemon')
+  return axios.get('https://pokeapi.co/api/v2/pokemon')
     .then(response => {
       const ourData = response.data.results;
       dispatch(fetchDataSuccessful(ourData));
