@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import { fetchData } from '../../actions';
+import { fetchData, fetchSingleData} from '../../actions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
