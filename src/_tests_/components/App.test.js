@@ -18,7 +18,6 @@ describe('<App />', () => {
   describe('render()', () => {
     test('renders the component', () => {
       const wrapper = shallow(<App />);
-      // const component = wrapper.dive();
       expect(toJson(wrapper)).toMatchSnapshot();
     });
   });
