@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import '../styles/App.css';
+// import '../styles/App.css';
 import pokeList from '../containers/pokeList';
 import pokeMon from '../containers/pokeMon';
 
