@@ -1,6 +1,22 @@
 import pokemon from '../../reducers/pokemon';
 import singlePokemon from '../../reducers/singlePokemon';
 
+describe('Test for initial state', () => {
+  it('Checks for a correct initial state', () => {
+    const action = {
+      type: 'default',
+    };
+
+    const initialState = {
+      loading: false,
+      ourData: [],
+      error: '',
+    };
+
+    expect(pokemon(undefined, action)).toEqual(initialState);
+  });
+});
+
 describe('All pokemons list', () => {
   it('returns the correct state', () => {
     const action = {
