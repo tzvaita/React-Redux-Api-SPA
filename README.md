@@ -16,7 +16,9 @@
   <img src="./singlepokemon.png">
 </p>
 
-
+## Video presentations
+[Loom video 1](https://www.loom.com/share/f2e38935609b46c99a21956892229909)
+[Loom video 2](https://www.loom.com/share/9c7b34f0723d4143a66591f579b7e08c)
 ## live demo
 [Pokemon view](https://somoye-meology.netlify.app)
 
