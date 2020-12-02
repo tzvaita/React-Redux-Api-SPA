@@ -36,7 +36,7 @@ const PokeList = ({ userData, fetchData }) => {
     return <p>{userData.error}</p>;
   }
 
-  return <p> Unable</p>;
+  return <p> Unable to fetch data</p>;
 };
 
 PokeList.propTypes = {
