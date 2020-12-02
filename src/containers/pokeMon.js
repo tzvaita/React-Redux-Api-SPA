@@ -53,7 +53,7 @@ const PokeMon = props => {
     return <p>there is an error</p>;
   }
 
-  return <p> Loading...</p>;
+  return <p> Loading....</p>;
 };
 
 PokeMon.propTypes = {
