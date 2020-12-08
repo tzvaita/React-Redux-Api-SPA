@@ -20,7 +20,7 @@ const PokeList = ({ userData, fetchData }) => {
           {userData.ourData.map(pok => (
             <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3 col-md-4 col-sm-6">
               <Link to={`/pokemon/${pok.name}`}>
-                <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${userData.ourData.indexOf(pok) + 1}.png`} alt="POKEMON" />
+                <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${pok.id}.png`} alt="POKEMON" />
                 <div className="card-body">
                   <h5 className="card-title pokTitle">{pok.name}</h5>
                 </div>
