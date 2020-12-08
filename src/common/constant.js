@@ -1,4 +1,5 @@
 const constant = () => {
+  const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
   const defaultState = {
     loading: false,
     ourData: [],
@@ -12,6 +13,7 @@ const constant = () => {
   };
 
   return {
+    categories,
     defaultState,
     pokeDefaultState,
   };
