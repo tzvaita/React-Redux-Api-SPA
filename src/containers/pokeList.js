@@ -10,7 +10,7 @@ const PokeList = ({
   userData, fetchData, categoryFilter, filter,
 }) => {
   const handleFilterChange = e => categoryFilter(e.target.value);
-  let list;
+  let x;
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,40 +19,43 @@ const PokeList = ({
   }
 
   if (!_.isEmpty(userData.ourData)) {
-    (filter === 'ALL') ? (list = userData.ourData.map(pok => (
-      <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3 col-md-4 col-sm-6">
-        <Link to={`/pokemon/${pok.name}`}>
-          <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${pok.id}.png`} alt="POKEMON" />
-          <div className="card-body">
-            <h5 className="card-title pokTitle">{pok.name}</h5>
+    if (filter === 'ALL') {
+      (x = userData.ourData.map(pok => (
+        <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3 col-md-4 col-sm-6">
+          <Link to={`/pokemon/${pok.name}`}>
+            <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${pok.id}.png`} alt="POKEMON" />
+            <div className="card-body">
+              <h5 className="card-title pokTitle">{pok.name}</h5>
+            </div>
+          </Link>
+          <div className="types">
+            <h5 className="pokTitle">Type</h5>
+            <div className="typetxt">{pok.types[0].type.name}</div>
           </div>
-        </Link>
-        <div className="types">
-          <h5 className="pokTitle">Type</h5>
-          {pok.types.map(type => (
-            <div className="typetxt" key={pok.types.indexOf(type)}>{type.type.name}</div>))}
         </div>
-      </div>
-    ))) : (list = userData.ourData.filter(pok => pok.category === filter).map(pok => pok => (
-      <div key={userData.ourData.indexOf(pok)} className="singleImg card col-lg-3 col-md-4 col-sm-6">
-        <Link to={`/pokemon/${pok.name}`}>
-          <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${pok.id}.png`} alt="POKEMON" />
-          <div className="card-body">
-            <h5 className="card-title pokTitle">{pok.name}</h5>
+      )));
+    } else {
+      (x = userData.ourData.filter(po => po.types[0].type.name === filter).map(po => (
+        <div key={userData.ourData.indexOf(po)} className="singleImg card col-lg-3 col-md-4 col-sm-6">
+          <Link to={`/pokemon/${po.name}`}>
+            <img className="card-img-top" src={`https://pokeres.bastionbot.org/images/pokemon/${po.id}.png`} alt="POKEMON" />
+            <div className="card-body">
+              <h5 className="card-title pokTitle">{po.name}</h5>
+            </div>
+          </Link>
+          <div className="types">
+            <h5 className="pokTitle">Type</h5>
+            <div className="typetxt">{po.types[0].type.name}</div>
           </div>
-        </Link>
-        <div className="types">
-          <h5 className="pokTitle">Type</h5>
-          {pok.types.map(type => (
-            <div className="typetxt" key={pok.types.indexOf(type)}>{type.type.name}</div>))}
         </div>
-      </div>)));
+      )));
+    }
 
     return (
       <div className="container-fluid">
         <NavBar handleFilterChange={handleFilterChange} />
         <div className="row">
-          {list}
+          {x}
         </div>
       </div>
     );
