@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> render() renders the component 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="pokLogo"
+  >
+    <a
+      href="/"
+    >
+      <img
+        alt="POKEMON"
+        src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+      />
+    </a>
+  </div>
+  <Switch>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/pokemon/:pokemon"
+    />
+    <Redirect
+      to="/"
+    />
+  </Switch>
+</div>
+`;
