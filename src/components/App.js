@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import pokeList from '../containers/pokeList';
 import pokeMon from '../containers/pokeMon';
-import CategoryFilter from './CategoryFilter';
 
 function App() {
   return (
@@ -12,9 +11,6 @@ function App() {
           <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="POKEMON" />
         </a>
       </div>
-      <nav>
-        <CategoryFilter />
-      </nav>
       <Switch>
         <Route path="/" exact component={pokeList} />
         <Route path="/pokemon/:pokemon" exact component={pokeMon} />
