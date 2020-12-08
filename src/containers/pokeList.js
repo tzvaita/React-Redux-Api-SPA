@@ -25,6 +25,11 @@ const PokeList = ({ userData, fetchData }) => {
                   <h5 className="card-title pokTitle">{pok.name}</h5>
                 </div>
               </Link>
+              <div className="types">
+                <h5 className="pokTitle">Type</h5>
+                {pok.types.map(type => (
+                  <div className="typetxt" key={pok.types.indexOf(type)}>{type.type.name}</div>))}
+              </div>
             </div>
           ))}
         </div>

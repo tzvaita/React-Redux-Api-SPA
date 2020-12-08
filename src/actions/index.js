@@ -39,10 +39,8 @@ export const fetchData = () => dispatch => {
     i += 1;
     axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(response => {
-        console.log(response);
         const { data } = response;
         ourData.push(data);
-        console.log(ourData);
         dispatch(fetchDataSuccessful(ourData));
       })
       .catch(error => {
