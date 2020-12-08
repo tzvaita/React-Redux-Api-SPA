@@ -32,16 +32,24 @@ const fetchSingleDataFailed = error => ({
 });
 
 export const fetchData = () => dispatch => {
-  dispatch(fetchDataRequest);
-  return axios.get('https://pokeapi.co/api/v2/pokemon')
-    .then(response => {
-      const ourData = response.data.results;
-      dispatch(fetchDataSuccessful(ourData));
-    })
-    .catch(error => {
-      const errorMsg = error.message;
-      dispatch(fetchDataFailed(errorMsg));
-    });
+  let i = 0;
+  const ourData = [];
+  while (i < 20) {
+    dispatch(fetchDataRequest);
+    i += 1;
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      .then(response => {
+        console.log(response);
+        const { data } = response;
+        ourData.push(data);
+        console.log(ourData);
+        dispatch(fetchDataSuccessful(ourData));
+      })
+      .catch(error => {
+        const errorMsg = error.message;
+        dispatch(fetchDataFailed(errorMsg));
+      });
+  }
 };
 
 export const fetchSingleData = pokemon => dispatch => {
