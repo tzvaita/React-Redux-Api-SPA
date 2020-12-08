@@ -1,9 +1,12 @@
 const constant = () => {
   const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
   const defaultState = {
-    loading: false,
-    ourData: [],
-    error: '',
+    pokemons: {
+      loading: false,
+      ourData: [],
+      error: '',
+    },
+    filter: 'ALL',
   };
 
   const pokeDefaultState = {
