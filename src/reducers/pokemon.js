@@ -1,6 +1,6 @@
 import Constant from '../common/constant';
 
-const pokemon = (state = Constant.defaultState, action) => {
+const pokemon = (state = Constant.defaultState.pokemons, action) => {
   switch (action.type) {
     case 'FETCH_DATA_REQUEST':
       return {
