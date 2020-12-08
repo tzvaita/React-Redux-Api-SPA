@@ -62,3 +62,8 @@ export const fetchSingleData = pokemon => dispatch => {
       dispatch(fetchSingleDataFailed(errorMsg));
     });
 };
+
+export const categoryFilter = category => ({
+  type: 'CHANGE_FILTER',
+  category,
+});
